@@ -1,4 +1,3 @@
-
 const videoEl = document.getElementById('animation-video');
 const audioEl = document.getElementById('animation-audio');
 const wrapper = document.getElementById('animation-wrapper');
@@ -6,24 +5,24 @@ const usernameDisplay = document.getElementById('username-display');
 
 // Animaciones ganar (win)
 const winAnimations = [
-  { video: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/win-cat.webm', audio: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/win.MP3' },
-  { video: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/win-cauldron.webm', audio: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/win.MP3' },
-  { video: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/win-ghost.webm', audio: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/win.MP3' },
-  { video: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/win-mummy.webm', audio: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/win.MP3' }
+  { video: 'win-cat.webm', audio: 'win.MP3' },
+  { video: 'win-cauldron.webm', audio: 'win.MP3' },
+  { video: 'win-ghost.webm', audio: 'win.MP3' },
+  { video: 'win-mummy.webm', audio: 'win.MP3' }
 ];
 
 // Animaciones perder (lose)
 const loseAnimations = [
-  { video: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/lose-cat.webm', audio: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/lose.MP3' },
-  { video: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/lose-cauldron.webm', audio: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/lose.MP3' },
-  { video: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/lose-ghost.webm', audio: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/lose.MP3' },
-  { video: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/lose-mummy.webm', audio: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/lose.MP3' }
+  { video: 'lose-cat.webm', audio: 'lose.MP3' },
+  { video: 'lose-cauldron.webm', audio: 'lose.MP3' },
+  { video: 'lose-ghost.webm', audio: 'lose.MP3' },
+  { video: 'lose-mummy.webm', audio: 'lose.MP3' }
 ];
 
 // Premio especial 3 wins
 const specialAnimation = {
-  video: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/ghostface.webm',
-  audio: 'https://angedigitalworks.github.io/Claw-Machine-Halloween/ghostface.MP3'
+  video: 'ghostface.webm',
+  audio: 'ghostface.MP3'
 };
 
 // Contador de victorias por usuario
@@ -40,6 +39,7 @@ function playAnimation(videoUrl, audioUrl, username) {
   // Reproducir video y audio
   Promise.all([videoEl.play(), audioEl.play()]).catch(e => {
     // puede fallar si no hay interacción previa, ignorar
+    console.warn('Error al reproducir:', e);
   });
 
   // Al terminar el video ocultar todo
